@@ -1,0 +1,238 @@
+1.What is Git?
+a) A database
+b) A programming language
+c) A version control system
+d) A compiler
+
+
+2.Which command is used to create a new Git repository?
+a) git start
+b) git create
+c) git init
+d) git repo
+
+3.Which command is used to check the current state of the repository?
+a) git status
+b) git check
+c) git current
+d) git log
+
+4.Which command stages all changes in the working directory?
+a) git update
+b) git add .
+c) git commit
+d) git push
+
+5.What does git clone do?
+a) Initializes a new repository
+b) Deletes a branch
+c) Creates a copy of a repository
+d) Merges branches
+
+6.Which command shows the commit history?
+a) git history
+b) git commits
+c) git log
+d) git show
+
+7.Which file is used to ignore specific files or folders in Git?
+a) .gitconfig
+b) .gitignore
+c) .gitkeep
+d) .githide
+
+8.What is the purpose of git pull?
+a) Upload local changes
+b) Merge branches
+c) Download and merge changes from remote
+d) Revert changes
+
+9.How do you create a new branch in Git?
+a) git create branch newbranch
+b) git new branch newbranch
+c) git branch newbranch
+d) git switch -c newbranch
+
+10.What does git diff do?
+a) Shows all branches
+b) Shows changed files
+c) Shows differences between commits or working tree
+d) Lists ignored files
+
+11.What is HEAD in Git?
+a) A backup pointer
+b) A reference to the latest tag
+c) A pointer to the current branch reference
+d) A file that stores commit messages
+
+12.Which command undoes the last commit but keeps the changes staged?
+a) git reset --hard HEAD~1
+b) git reset --soft HEAD~1
+c) git revert HEAD
+d) git commit --amend
+
+13.How to delete a local branch in Git?
+a) git branch -r branchname
+b) git delete branch branchname
+c) git branch -d branchname
+d) git remove branchname
+
+14.What does git stash do?
+a) Saves current changes and clears working directory
+b) Deletes old commits
+c) Backs up entire repository
+d) Creates a new branch
+
+15.What is a fast-forward merge?
+a) Merge that deletes files
+b) Merge that requires conflict resolution
+c) Merge that moves the branch pointer without creating a new commit
+d) Merge that reverses changes
+
+16.What does the command git fetch do?
+a) Downloads and merges updates from a remote branch
+b) Updates the remote branch
+c) Downloads changes from the remote but doesn't merge them
+d) Creates a new branch from remote
+
+
+17.Which command re-applies commits from one branch onto another branch?
+a) git merge
+b) git pull
+c) git rebase
+d) git clone
+
+
+18.What happens when you use git stash pop?
+a) Deletes all stashed changes
+b) Applies the last stashed changes and removes them from the stash list
+c) Lists all stashes
+d) Applies all stashes
+
+19.Which command is used to list all configured remotes?
+a) git show-remote
+b) git remote -v
+c) git list remotes
+d) git remotes
+
+20.What is the correct way to resolve merge conflicts?
+a) Restart the repository
+b) Delete the repository and start over
+c) Manually edit the conflicting files, then commit
+d) Use git fix
+
+21.What does git revert do?
+a) Resets the repository to a previous state
+b) Creates a new commit that undoes changes from a specific commit
+c) Deletes the last commit
+d) Erases commit history
+
+22.How do you rename a branch in Git (while on another branch)?
+a) git branch rename oldname newname
+b) git rename oldname newname
+c) git branch -m oldname newname
+d) git mv oldname newname
+
+23.Which file stores Git configuration specific to the current repository?
+a) .gitignore
+b) .git/config
+c) .gitrepo
+d) .config/git
+
+24.What is the effect of git reset --hard?
+a) Removes tracked files permanently
+b) Undoes local commits and resets files in working directory
+c) Unstages all changes but keeps working directory intact
+d) Deletes your Git history
+
+
+25.You cloned a repository and want to create a new branch and start working. What’s the correct sequence?
+a) git checkout new-feature
+b) git branch new-feature && git checkout new-feature
+c) git checkout -b new-feature
+d) Both b and c are correct
+
+26.What does the -u flag mean in git push -u origin feature-branch?
+a) Push as upstream without committing
+b) Set the upstream (tracking) branch
+c) Undo last push
+d) Update remote repo
+
+
+27.What is the main difference between git pull and git fetch?
+a) git pull is faster
+b) git pull only updates tags
+c) git fetch downloads but doesn’t merge
+d) git fetch deletes old branches
+
+28.Which of the following actions will remove a file from the Git repository and your working directory?
+a) git rm file.txt
+b) git reset file.txt
+c) git ignore file.txt
+d) rm file.txt
+
+29.After resolving a merge conflict, what is the correct next step?
+a) git stash
+b) git rebase --continue
+c) git add <file> and git commit
+d) git checkout --theirs
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1.✅ Answer: c) A version control system
+2.✅ Answer: c) git init
+3.✅ Answer: a) git status
+4.✅ Answer: b) git add .
+5.✅ Answer: c) Creates a copy of a repository
+6.✅ Answer: c) git log
+7.✅ Answer: b) .gitignore
+8.✅ Answer: c) Download and merge changes from remote
+9.✅ Answer: c) git branch newbranch
+10.✅ Answer: c) Shows differences between commits or working tree
+11.✅ Answer: c) A pointer to the current branch reference
+12.✅ Answer: b) git reset --soft HEAD~1
+13.✅ Answer: c) git branch -d branchname
+14.✅ Answer: a) Saves current changes and clears working directory
+15.✅ Answer: c) Merge that moves the branch pointer without creating a new commit
+16.✅ Answer: c) Downloads changes from the remote but doesn't merge them
+17.✅ Answer: c) git rebase
+18.✅ Answer: b) Applies the last stashed changes and removes them from the stash list
+19.✅ Answer: b) git remote -v
+20.✅ Answer: c) Manually edit the conflicting files, then commit
+21.✅ Answer: b) Creates a new commit that undoes changes from a specific commit
+22.✅ Answer: c) git branch -m oldname newname
+23.✅ Answer: b) .git/config
+24.✅ Answer: b) Undoes local commits and resets files in working directory
+25.✅ Answer: d) Both b and c are correct
+26.✅ Answer: b) Set the upstream (tracking) branch
+27.✅ Answer: c) git fetch downloads but doesn’t merge
+28.✅ Answer: a) git rm file.txt
+29.✅ Answer: c) git add <file> and git commit

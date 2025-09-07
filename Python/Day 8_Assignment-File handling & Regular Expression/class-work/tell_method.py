@@ -1,0 +1,1 @@
+# This method returns the current position of file pointer.

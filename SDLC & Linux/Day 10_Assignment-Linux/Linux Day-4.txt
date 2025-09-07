@@ -1,0 +1,869 @@
+##########################
+Shell Scripting In Linux
+##########################
+
+Linux contains two parts
+1.Shell
+2.Kernel
+
+1.Shell
+==========
+
+|-Shell is responsible for reading commands given by user.
+
+|-Shell will verify command and will give instructions to kernel to process that command.
+
+|-if command is invalid shell will give error
+
+|-Kernel will execute our command with System Hard Components
+
+|-Shell acts as mediator between User and Kernel.
+
+       User ---> Shell----->Kernel----->H/W
+
+|- Shell is user program or its environment provided for user interaction.
+
+|-Shell is an command language interpreter that executes commands read from the standard input device(keyboard) or from a file.
+
+#############################
+What is Scripting?
+#################################
+
+|-Scripting means set of commands mentioned in a file for execution.
+
+|-Scripting is used to automate our routine work.
+
+
+|-For example I want to execute below commands every day as linux user.
+
+date
+cal
+whoami
+pwd
+ls -l
+
+
+|-Instead of executing all these commands manually we can keep them in a file and we can execute that file.
+
+|-The file which contains set of commands for execution is called  as 'Script file'.
+
+
+########################
+What is Shell Scripting?
+#############################
+
+|-Shell Scripting is used to execute set of commands using a script file.
+
+|-When we execute script file then shell will read those commands and will verify commands syntax.
+
+|-kernel will give instructions to hardware components to perform actual operation.
+
+###############################
+Use of shell Scripting
+################################
+
+|-Automating your daily tasks, for example, you a may want to back up all yoour programs at the end of day. This can be done using a shell script.
+
+|-Automating repetitive tasks, for example, the repettive task of complinga c program and executing.
+
+|-It saves lot of work
+
+################################
+Types of Shells
+###############################
+
+|-There are several shells available in linux OS.
+
+1) Bourne Shell(Path: /bin/sh)
+2) Bash Shell (path: /bin/bash)
+3) Korn Shell(Path: /bin/ksh)
+4) CShell(Path: /bin/csh)
+5) TShell(Path: /bin/tcsh)
+6) ZShell(Path: /bin/zsh)
+
+# Display all the shells of our linux machines
+ cat /etc/shells
+
+
+# Display the default shell of our linux machine
+echo $SHELL
+
+Note: The most commonly shell used in linux in is 'BASH SHELL'.
+
+
+Note: Shell Script files will have .sh extension
+
+
+#################################################
+Working with First Shell Script Program
+###############################################
+
+Step-1 Create script file using vi editor
+    vi task.sh
+
+Step-2 write some commands thats needs to execute
+ whoami
+ pwd
+ date
+
+Save the file and close it(Esc+:wq)
+
+Step-3 Run the shell script(Option-1)
+
+sh task.sh
+
+Note: If we get permission denied then we should provide 'execute' permission using 'chmod' command
+
+# Run the shell script(Option-2)
+ ./tash.sh
+
+#######################################
+What is sha-bang in shell scripting?
+#######################################
+
+|-Sha-bang is used to specify which shell should be used to process our script
+
+Syntax:
+=========
+#! /bin/bash
+
+
+************************* Shell Script -2*************************
+
+#! /bin/bash
+
+echo "welcome to Scripting"
+echo "Scripting is used to execute set of commands"
+echo "Scripting requires lot of practice"
+
+
+
+************************* Shell Script -3*************************
+
+#! /bin/bash
+
+echo "Enter your name:"
+read name
+echo "Good Morning $name"
+
+
+
+************************* Shell Script -4*************************
+#! /bin/bash
+a=10
+b=20
+c=$(($a+$b))
+echo "sum of $a and $b= $c"
+
+************************* Shell Script -5*************************
+
+
+#! /bin/bash
+echo "Enter First Number"
+read a
+echo "Enter Second number"
+read b
+c=$(($a+$b))
+echo "sum of $a and $b= $c"
+
+
+
+
+
+
+Write a shell script to get current date,time,username and current working direcctory
+
+
+
+Sample Output: 
+Hello <name>
+Current Date is <date>
+User is <user-name>
+current directory <dir>
+
+
+
+************************
+Variables
+Control statements
+Case statments
+Loops
+Functions
+*************************
+
+|- variables are place holder to store the value.
+|-variables are key-value pairs
+
+Ex:-
+name=john
+age=30
+
+
+
+|- In Shell scripting there is no concept of Data Type.
+
+|-Every value will be treated as text/string
+
+|-variables are divided into 2 types
+=========================================
+1) Environment variables or system variables
+2) User defined variables
+
+
+
+|-The variables which are already defined and using by our system are called as Environment variables.
+
+
+Ex:-
+echo $USER
+echo $SHELL
+
+|-Based on our requirement we can define our own variables those are called as user defined variables.
+
+name=john
+age=30
+
+
+###################
+variable Rules
+#####################
+|- we should not use special symbols like -@,# etc..
+|-Variable name should not start with digit
+
+Note: It is recommended to use uppercase character for variable name.
+
+|- We can use 'readonly' for variable so that variable value modification will not be allowed.
+
+
+######################################
+Command Line Arguments
+#######################################
+
+|-The arguments which will pass to script file at the time of execution.
+
+|-Command line arguments are used to supply the values dynamically to the script file.
+
+Ex:-
+ sh demo.sh john 30
+
+
+|-We can access cmd args in script file like below
+
+
+$#  - no of args
+$0  - script file name
+$1  - First Cmd arg
+$2  - Second Cmd arg
+$3  - Third Cmd arg
+$*  - All Cmd args
+
+
+|- To Comment any single line we can use '#'
+
+echo 'hi'
+#echo 'hello'
+
+
+|- We can comment multiple lines also in script file like below
+
+<<COMMENT
+   .............
+COMMNET
+
+
+|- We can hold script execution for some time using 'sleep' command
+
+#! /bin/bash
+whoami
+sleep 5s
+pwd
+sleep 5s
+cal
+sleep 5s
+date
+
+#########################
+Conditional Statements
+###########################
+
+|- Conditional statements are used to execute commands based on condition.
+
+Syntax:
+=======
+
+if[condition]
+then
+      stmts
+else
+       stmts
+
+
+
+|-If given condition statisfied then if statements will be executed otherwise else statements will be executed
+
+
+if [ condition ]
+then  
+     stmts
+elif [ condition]
+      
+then
+      stmts
+else
+   stmts
+
+
+if statement
+=============
+|- this block will process if specified condition is true.
+
+Syntax:
+=========
+if [ condition ]
+then
+    statment
+fi
+
+if-else statement
+===================
+|-if specified conditio is not true in if part then else part will be execute.
+
+
+syntax:-
+==========
+if [ condition ]
+then
+   statement1
+else
+   statment2
+fi
+
+
+
+Ladder if else
+================
+
+syntax:-
+=========
+
+if [ condition ]
+then
+   statment1
+   statement2
+   .........
+elif [ condition2 ]
+then
+   statement3
+   statement4
+else
+   statment5
+fi
+
+
+# Write script to check whether given number is positive or not.
+=================================================================
+#! /bin/bash
+echo "Enter number:"
+read num
+if [ $num -gt 0 ]
+then
+        echo "number is positive"
+else
+        echo "number is  negative"
+fi
+
+
+
+# write script to check students grades based on their marking
+===================================================================
+#! /bin/bash
+echo "Enter Student Marks"
+read marks
+if [ $marks -gt 70 ]
+then
+        echo "Grade A"
+elif [ $marks -gt 60]
+then
+        echo "Grade B"
+elif [ $marks -gt 50 ]
+then
+        echo "Grade C"
+else
+        echo "Fail"
+fi
+
+
+
+Looping Statements in Shell Scripting: There are total 3 looping statements that can be used in bash programming 
+===============================================================================================================
+1.while statement
+2.for statement
+3.until statement
+
+To alter the flow of loop statements, two commands are used they are,  
+
+break
+continue
+
+Their descriptions and syntax are as follows: 
+
+while statement
+=================
+|-Here the command is evaluated and based on the resulting loop will execute, if the command is raise to false then the loop will be terminated that 
+
+
+while <condition>
+do
+
+    <command 1>
+    <command 2>
+    <etc>
+done
+
+Read a file line-by-line
+===========================
+#! /bin/bash
+
+while read line
+do
+        echo "Line: $line"
+done < t1.txt
+
+ 
+Note:
+=====
+
+[ condtion ]: Make sure there is a space after [ and before ]
+use (()) : you can use (()) for numeric conditons
+
+
+
+Examples:
+=========
+#! /bin/bash
+i=1
+while (( i<=5 ))
+do
+        echo "number:$i"
+        ((i++))
+done
+
+
+for statement
+==============
+The for loop operates on lists of items. It repeats a set of commands for every item in a list. 
+Here var is the name of a variable and word1 to wordN are sequences of characters separated by spaces (words). Each time the for loop executes, the value of the variable var is set to the next word in the list of words, word1 to wordN. 
+
+Syntax:  
+
+for <var> in <value1 value2 ... valuen>
+do
+    <command 1>
+    <command 2>
+    <etc>
+done
+
+
+Ex:1
+========
+Loop through a list of names
+
+#! /bin/bash
+
+for name in Alice peter harry
+do
+	echo "Hello, $name"
+done
+
+Ex-2: Loop through numbers
+
+Loop through a list of names
+
+#! /bin/bash
+
+for num in 1 2 3 4 5
+do
+	echo "Number=  $num"
+done
+
+
+
+
+Ex-3: Loop with a Range
+|-you can loop using {start..end}
+
+Loop through a list of names
+
+#! /bin/bash
+
+for i in {1..5}
+do
+	echo "value= $i"
+done
+
+Ex-4: Loop with a Range
+|-you can loop using {start..end..step}
+
+Loop through a list of names
+
+#! /bin/bash
+
+for i in {1..10..2}
+do
+	echo "value= $i"
+done
+
+
+Examples: Loop through files in a directory
+==============================================
+
+#! /bin/bash
+
+for file in *.txt
+do
+        echo "Processing file:  $file"
+done
+
+Note: This will print the name of every .txt file in your directory
+
+ 
+until statement
+The until loop is executed as many times as the condition/command evaluates too false. The loop terminates when the condition/command becomes true. 
+
+Syntax: 
+
+until <condition>
+do
+
+    <command 1>
+    <command 2>
+    <etc>
+done
+
+
+
+Implementing for loop with break statement 
+=============================================
+#Start of for loop
+for a in 1 2 3 4 5 6 7 8 9 10
+do
+	# if a is equal to 5 break the loop
+	if [ $a == 5 ]
+	then
+		break
+	fi
+	# Print the value
+	echo "Iteration no $a"
+done
+
+Implementing for loop with continue statement
+=============================================  
+
+for a in 1 2 3 4 5 6 7 8 9 10
+do
+	# if a = 5 then continue the loop and
+	# don't move to line 8
+	if [ $a == 5 ]
+	then
+		continue
+	fi
+	echo "Iteration no $a"
+done
+
+
+
+
+
+Implementing while loop 
+========================
+
+a=0
+# -lt is less than operator
+
+#Iterate the loop until a less than 10
+while [ $a -lt 10 ]
+do
+	# Print the values
+	echo $a
+	
+	# increment the value
+	a=`expr $a + 1`
+done
+
+
+Implementing until loop 
+=======================
+
+a=0
+# -gt is greater than operator
+
+#Iterate the loop until a is greater than 10
+until [ $a -gt 10 ]
+do
+	# Print the values
+	echo $a
+	
+	# increment the value
+	a=`expr $a + 1`
+done
+
+
+COLORS="red green blue"
+
+# the for loop continues until it reads all the values from the COLORS
+
+for COLOR in $COLORS
+do
+	echo "COLOR: $COLOR"
+done
+
+
+
+
+Notes:
+=======
+while [ conditon ] -> runs while conditon is true
+until [ condtion ] -> runs while condition is false
+
+
+|-In linux, sh stands for "Shell"
+
+|-sh is a command-line interpreter or sheel
+
+|-It reads and execute shell scripts and commands
+
+sh myscript.sh
+
+|-Run a shell script using the sh shell
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

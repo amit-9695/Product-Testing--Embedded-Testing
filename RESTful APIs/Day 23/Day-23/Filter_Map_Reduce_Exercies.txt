@@ -1,0 +1,64 @@
+Exercise 1: Filter Even Numbers
+
+Exercise 2: Filter Words Starting with 'a'
+words = ["apple", "banana", "apricot", "cherry", "avocado"]
+
+Exercise 3: Remove Empty Strings
+items = ["hello", "", "world", "", "python"]
+
+
+Exercise 4: Filter Prime Numbers
+ [2, 3, 5, 7, 11, 13, 17, 19]
+
+Exercise 5: Square of Numbers
+nums = [1, 2, 3, 4, 5]
+
+
+Exercise 6: Convert Celsius to Fahrenheit
+celsius = [0, 10, 20, 30]
+
+
+Exercise 7: Extract First Names
+full_names = ["John Doe", "Jane Smith", "Alice Johnson"]
+
+
+Exercise 8: Add Two Lists Element-wise
+a = [1, 2, 3]
+b = [4, 5, 6]
+
+
+Exercise 9: Sum of All Elements
+nums = [1, 2, 3, 4, 5]
+
+
+Exercise 10: Product of All Elements
+nums = [1, 2, 3, 4]
+
+Exercise 11: Find Maximum Number
+nums = [4, 12, 9, 1, 21]
+
+
+Exercise 12: Longest Word
+words = ["cat", "elephant", "giraffe", "dog"]
+
+
+Exercise 13: Filter Students with Passing Marks
+students = [("Alice", 75), ("Bob", 40), ("Charlie", 60), ("David", 33)]
+
+
+Exercise 14: Filter Files with Specific Extension
+files = ["doc.txt", "image.jpg", "data.csv", "notes.txt", "script.py"]
+
+
+Exercise 15: Sales Analysis
+Given a list of sales records:
+Filter out cancelled orders
+Convert prices to float
+Calculate total sales revenue
+
+
+sales = [
+    {"price": "100.5", "status": "delivered"},
+    {"price": "200.0", "status": "cancelled"},
+    {"price": "50", "status": "delivered"},
+]

@@ -1,0 +1,202 @@
+1. Which Python package is most commonly used for BDD testing?
+A. unittest
+B. pytest
+C. behave
+D. nose
+
+
+2. In BDD, what is the purpose of a .feature file?
+A. It contains the test functions.
+B. It defines the test environment.
+C. It contains human-readable scenarios written in Gherkin.
+D. It contains Python code for step definitions.
+
+
+3. Which of the following is a valid Gherkin keyword?
+A. WHENEVER
+B. CHECK
+C. GIVEN
+D. ASSERT
+
+4. What is the file extension for BDD feature files in Behave?
+A. .bdd
+B. .feature
+C. .gherkin
+D. .spec
+
+5. In Behave, where are step definitions usually stored?
+A. In the .feature file
+B. In conftest.py
+C. In Python files inside the steps/ folder
+D. In the features/feature_files/ directory
+
+
+
+6. Which decorator is used in pytest-bdd to define a Given step?
+A. @pytest.step
+B. @given
+C. @pytest_bdd.given
+D. @scenario
+
+
+7. What command is used to run Behave tests?
+A. python behave
+B. pytest
+C. behave
+D. run-bdd
+
+
+8. In BDD, the step "Then" is used to:
+A. Set up initial conditions
+B. Describe actions taken
+C. Describe expected outcomes
+D. Provide data for the test
+
+
+9. What is the default folder structure for Behave?
+A. tests/steps/
+B. features/steps/
+C. bdd/feature_files/
+D. specs/defs/
+
+
+10. Which Python BDD framework integrates naturally with pytest?
+A. Behave
+B. Lettuce
+C. Cucumber
+D. pytest-bdd
+
+11. What language is used to write scenarios in .feature files?
+A. YAML
+B. JSON
+C. Gherkin
+D. Markdown
+
+
+12. Which statement is correct about Gherkin syntax?
+A. Indentation defines test logic.
+B. Each scenario must begin with Scenario: or Scenario Outline:
+C. Gherkin supports only Given and Then steps.
+D. Python code is written inside .feature files.
+
+
+13. In Behave, how do you pass data from one step to another?
+A. Using global variables
+B. Using a context object
+C. Using environment variables
+D. Using temporary files
+
+
+14. What keyword is used in .feature files for data-driven testing?
+A. Data:
+B. Examples:
+C. List:
+D. Params:
+
+
+15. What is the role of @when in step definitions?
+A. It defines test configuration.
+B. It matches When steps in .feature files.
+C. It initializes the BDD framework.
+D. It creates assertion steps.
+
+
+16. Which of the following best describes the Scenario Outline?
+A. A single static test case
+B. A scenario template that runs once
+C. A scenario template that runs multiple times with different data
+D. A unit test class in BDD
+
+
+17. Which step in Gherkin syntax represents the triggering user action?
+A. GIVEN
+B. THEN
+C. WHEN
+D. EXPECT
+
+
+18. Which of the following is NOT a feature of BDD?
+A. Encourages collaboration between developers, testers, and business users
+B. Requires unit testing
+C. Uses human-readable scenarios
+D. Supports test-first approach
+
+
+19. What output format can Behave generate for test reports?
+A. Only plain text
+B. HTML only
+C. JSON, JUnit XML, and more
+D. CSV only
+
+
+20. How do you use parameterized steps in Behave?
+A. By using input() function
+B. With regex or {parameter} placeholders in step definitions
+C. By importing from pytest.mark.parametrize
+D. By passing variables in .feature file as JSON
+
+21. In Behave, how do you share test state between steps?
+A. By using fixtures
+B. By passing variables through step return values
+C. By assigning attributes to context
+D. By using global variables
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1.✅ Answer: C. behave
+2.✅ Answer: C. It contains human-readable scenarios written in Gherkin.
+3.✅ Answer: C. GIVEN
+4.✅ Answer: B. .feature
+5.✅ Answer: C. In Python files inside the steps/ folder
+6.✅ Answer: C. @pytest_bdd.given
+7.✅ Answer: C. behave
+8.✅ Answer: C. Describe expected outcomes
+9.✅ Answer: B. features/steps/
+10.✅ Answer: D. pytest-bdd
+11.✅ Answer: C. Gherkin
+12.✅ Answer: B. Each scenario must begin with Scenario: or Scenario Outline:
+13.✅ Answer: B. Using a context object
+14.✅ Answer: B. Examples:
+15.✅ Answer: B. It matches When steps in .feature files.
+16.✅ Answer: C. A
+17.✅ Answer: C. WHEN
+18.✅ Answer: B. Requires unit testing
+19.✅ Answer: C. JSON, JUnit XML, and more
+20.✅ Answer: B. With regex or {parameter} placeholders in step definitions
+21.✅ Answer: C. By assigning attributes to context

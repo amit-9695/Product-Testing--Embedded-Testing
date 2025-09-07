@@ -1,0 +1,479 @@
+Linux Commands
+===============
+
+cat : It is used to print file data from top to bottom.
+
+tac : It is reverse of cat(Prints file data from bottom to top)
+
+head: It is used to print file data from top to bottom (by default it print first 10 lines only)
+
+    syntax: head <file-name>
+            head test6.txt (it reads first 10 lines)
+            head -n 5 test6.txt (it reads first 5 lines)
+            head -n 12 test6.txt (it reads first 12 lines)
+
+tail: It is used to print file data from bottom to top (by default it print first 10 lines only)
+      syntax: tail <file-name>
+              tail test6.txt (it reads last 10 lines data)
+              tail -n 5 test6.txt (it reads last 6 lines data)
+              tail -n 12 test6.txt (it reads last 12 lines data)
+              tail -n +3 test6.txt(it reads from 3rd line to bottom)
+
+
+Note: Application log messages will be appended at bottom of the file. To read latest log messages we need to use 'tail' command
+
+
+wc: It is used to printt no of lines, no of words and no of characters in given file.
+
+	Syntax: wc <file-name>
+         E.g:   wc test6.txt
+
+
+################
+GREP
+################
+
+
+|-Grep stands for 'Global Regular Expression Print
+
+
+|-It is used to find the data in the file (CTRL+F)
+
+|-Grep cmd will process the text line by line and it prints which are matched with given pattern.
+
+Example:-
+===============
+Step-1 create a new file with content
+
+cat > ashu.txt
+
+Linux is Opensource OS
+Linux is Free OS
+Linux is Multi User OS
+AWS Cloud
+Amazon webservices
+200+ services
+IT infrastructure
+
+save and close file(by pressing CTRL+d)
+
+Step-2 Read the content of file
+
+cat ashu.txt
+
+
+Step-3 print file data which matches given pattern
+
+grep 'Linux' ashu.txt (It will print all lines which contains Linux)
+
+grep -i 'linux' ashu.txt (Ignore case sensitive)
+
+grep -i 'linux' * (It will search for linux keyword in all the files and print which contains that)
+
+grep -R 'linux'   (It will search in present directory and su-directories also)
+
+grep -v "success" logfile.txt ( show line that don't contain the sucess word)
+
+grep -c "connection" app.log (count matches)
+
+grep -e "error" -e "fail" app.log(search multiple patterns)
+
+
+
+-i : case-insentive search
+-n : show line number in results
+-v : Invert match
+-r : Recursive search
+-c : count matching line
+-e : use multiple patters
+
+
+###############
+Text Editors
+##############
+
+|-In Windows OS Notepad is the default text editor
+
+|-The nano editor is a simple.
+
+|-In Linux OS we will use 'VI' text editor (It is default in Linux)
+
+
+Nano Editor
+==============
+nano t1.txt
+
+|-If the file doesn't exist, nano will create it.
+
+Basic Command in Nano
+__________________________
+Action		Shortcut
+save file	Ctrl+o(then press enter)
+Exit nano	Ctrl+X
+Cut a line	Ctrl+k
+Paste a line	Ctrl+U
+Search text	Ctrl+w
+
+
+How to Open text Editor in Linux
+===================================
+
+vi ashu.txt
+
+|- press 'i' in keyboard to enter into 'insert mode'
+
+|- write the data in the file
+
+|- Press 'Esc' then type :wq! to save and close that file and press enter key
+
+Note:
+=====
+|- To close  the file withour saving we wil use ==> :q!
+
+
+
+#############
+SED Command
+#############
+
+|- SED stands for stream editor
+
+|-The SED command in Linux is a stream editor used to search,replace,insert or delete text in file or stream
+|-Using SED command we can replace the text without opening the file
+
+
+# It will replace Linux word with Unix and prints output to terminal without make changes in original file.
+ sed 's/Linux/Unix/' ashu.txt
+
+
+# It will replace Linux word with Unix word in the file
+  sed -i 's/Linux/Unix/' ashu.txt
+
+# Replace all occurence on each line(g=globa)
+  sed 's/old/new/g' file.txt
+
+# In Linux, If you have made changes to a file or command output and want to save those changes into a new file. you can do it using Redirection(> or>>)
+
+sed 's/old/new/g' orginal.txt > newfile.txt
+
+Note:-
+======
+
+|- Using sed command we can delete lines also in the file
+
+
+# It will delete 3rd line and prints output to terminal without make changes in original file.
+sed '3d' ashu.txt
+
+
+# It will delete 3rd line in the ashu.txt file
+sed -i '3d' ashu.txt
+
+# Delete last line of the file
+sed -i '$d' ashu.txt
+
+# Delete from nth line
+sed -i '12,$d' ashu.txt
+
+
+#Print Specific Lines
+ sed -n '3p' file.txt
+|-Print only line3 of the file
+
+sed -n '3,5p' file.txt
+
+|-Print lines 3 to 5
+
+
+
+
+
+
+#####################################################################
+User Account creation/ Group Creating /Adding user to group In Linux
+########################################################################
+
+|-useradd command is the standard way to create a new user.It requires superuser privileges(root)
+
+# Adding new User
+sudo useradd <user-name>
+
+e.g:- sudo useradd john
+
+|-Creates the user and their home directory
+
+
+# setting password for user
+ sudo passwd <user-name>
+
+e.g: sudo passwd john
+
+|-View user info
+
+# finding id of user
+id <user-name>
+
+e.g: id john
+
+#List all user
+getent passwd
+
+
+|-Deleting a User
+
+#Delete user
+sudo userdel username
+
+e.g: sudo userdel john
+
+
+How we can switch from current user to Root user
+==================================================
+sudo su
+
+
+How to come out from current user
+====================================
+exit
+
+
+How to switch from current user to other user
+=============================================
+sudo su <user-name>
+
+e.g:- sudo su john
+
+Switch user using su
+==========================
+
+#To switch to another user
+	su - username
+
+|- The - makes sure you get the full login shell of the new user
+
+
+Manage a Group
+=======================
+# Create a group
+sudo groupadd groupname
+
+# add user to group
+sudo usermod -aG groupdname username
+
+
+
+
+Add User to a Group
+=====================
+sudo usermod -aG groupname username
+
+
+#Delete a Group
+====================
+sudo groupdel groupname
+
+e.g: sudo groupdel devteam
+
+
+
+Remove user from group using gpasswd
+========================================
+sudo gpasswd -d username grupname
+
+#Removes username from groupname
+
+e.g:
+sudo gpasswd -d john devteam
+
+#Remove user from multiple groups
+sudo usermod -G group1,group2,group3
+
+
+#######################
+chown
+#####################
+
+|-"chown" command is used to change the ownership of files and directories.
+
+
+
+syntax:
+=======
+
+	  chown new_owner file_or_directory
+
+|-new_owner: the user you want to give ownership to
+
+          chown <user-name> <file-name>
+
+   e.g:   chown john m1.txt
+
+Note: chown: changing ownership of 'm1.txt': Operation not permitted
+
+|-To give privilege we use sudo
+
+
+syntax:
+=======
+         sudo chown <user-name> <file-name>
+
+   e.g:   sudo chown john m1.txt
+
+
+- press enter then type command ls -l
+
+- We can see owner of the file using "ls -l" command
+
+Example:
+================
+
+
+Step-1 create an empty file
+
+        touch m1.txt
+
+Step-2 Check the ownership of the file by using following command
+        ls -l
+
+Step-3 Change the ownership of the file
+         sudo chown john m1.txt
+
+
+
+#Changing owner of a file
+
+sudo chown <uname> <filename>
+
+# we can change file owner using userID also
+ sudo chown <UID> <filename>
+
+Note: We can get UID for username using 'id uname' command
+
+id <username>
+
+e.g: id john
+
+
+#Change group of a file
+sudo chown :groupname <fileName>
+
+# list out all available user
+
+cat /etc/group
+
+
+
+Examples:
+=============
+1. Change the Owner of a File
+>chown username file.txt
+
+2.Change the Owner an Group of a file
+>chown username:groupname file.txt
+
+3.Change the Group only
+>chown :groupname file.txt
+
+4.Change Ownership of a Directory Recursively
+>chown -R username:groupname /path/to/directory
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

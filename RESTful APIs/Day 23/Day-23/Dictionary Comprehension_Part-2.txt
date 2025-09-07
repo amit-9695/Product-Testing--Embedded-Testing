@@ -1,0 +1,79 @@
+What is Dictionary Comprehension?
+=====================================
+|-It's a concise way to create dictionaries in Python using a single line of code.
+
+Syntax:
+
+{key_expr: value_expr for item in iterable if condition}
+
+
+1. Create a dictionary from a list
+
+nums = [1, 2, 3, 4]
+squares = {x: x**2 for x in nums}
+print(squares)  # {1: 1, 2: 4, 3: 9, 4: 16}
+
+2. From a range
+
+evens = {x: x*10 for x in range(1, 6)}
+print(evens)  # {1: 10, 2: 20, 3: 30, 4: 40, 5: 50}
+
+3. Only even keys
+
+even_squares = {x: x**2 for x in range(10) if x % 2 == 0}
+print(even_squares)  # {0: 0, 2: 4, 4: 16, 6: 36, 8: 64}
+
+4. Value conditional logic
+
+labels = {x: "even" if x % 2 == 0 else "odd" for x in range(5)}
+print(labels)  # {0: 'even', 1: 'odd', 2: 'even', 3: 'odd', 4: 'even'}
+
+🔹 Using zip() with dictionary comprehension
+5. Two lists into a dict
+
+keys = ['a', 'b', 'c']
+values = [1, 2, 3]
+zipped_dict = {k: v for k, v in zip(keys, values)}
+print(zipped_dict)  # {'a': 1, 'b': 2, 'c': 3}
+
+🔹 Using string methods
+6. Count characters
+
+word = "banana"
+char_count = {char: word.count(char) for char in set(word)}
+print(char_count)  # {'b': 1, 'a': 3, 'n': 2}
+
+🔹 Nested Dictionary Comprehension
+7. Nested loop (2D dictionary)
+
+table = {i: {j: i*j for j in range(1, 4)} for i in range(1, 4)}
+print(table)
+
+# {
+#   1: {1: 1, 2: 2, 3: 3},
+#   2: {1: 2, 2: 4, 3: 6},
+#   3: {1: 3, 2: 6, 3: 9}
+# }
+
+🔹 Enumerate with Dictionary Comprehension
+8. Index to value mapping
+
+colors = ['red', 'green', 'blue']
+index_map = {i: color for i, color in enumerate(colors)}
+print(index_map)  # {0: 'red', 1: 'green', 2: 'blue'}
+
+🔹 Reverse a dictionary
+9. Value to key
+
+original = {'a': 1, 'b': 2, 'c': 3}
+reversed_dict = {v: k for k, v in original.items()}
+print(reversed_dict)  # {1: 'a', 2: 'b', 3: 'c'}
+
+🔹 Remove duplicates from a dictionary (based on values)
+10. Unique values only
+
+data = {'a': 1, 'b': 2, 'c': 1, 'd': 3}
+unique = {}
+[unique.setdefault(v, k) for k, v in data.items()]
+unique_dict = {v: k for k, v in unique.items()}
+print(unique_dict)  # {1: 'a', 2: 'b', 3: 'd'}

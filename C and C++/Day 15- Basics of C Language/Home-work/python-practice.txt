@@ -1,0 +1,34 @@
+Problem-1
+
+Write a Python program to validate whether a given string is a valid variable name according to Python naming conventions. 
+
+The program will prompt the user to enter a string, and then it will validate the string based on the following rules:
+The string must start with a letter (a-z, A-Z) or an underscore (_).
+The string can contain letters (a-z, A-Z), digits (0-9), and underscores (_) after the first character.
+The string must not be a reserved keyword in Python.
+
+
+Problem-2
+Write a Python program that uses regular expressions to validate whether a given password is strong or not. A strong password should satisfy the following conditions:
+
+It should have at least eight characters.
+It should contain at least one uppercase letter.
+It should contain at least one lowercase letter.
+It should contain at least one digit.
+It should contain at least one special character from the set [!@#$%^&*(),.?":{}|<>].
+
+
+Problem-3
+Gautham is preparing a unique number sequence to help in a coding challenge for beginners he wants to create series of triangular pattern. The challenge is to create a triangular pattern using sequences of natural numbers up to n, but only for odd row numbers, using the continue statement.
+
+Gautham's task is to print the triangular pattern for each odd number starting from 1 up to n.
+
+Example
+Input
+10
+Output
+1
+1 2 3
+1 2 3 4 5
+1 2 3 4 5 6 7
+1 2 3 4 5 6 7 8 9

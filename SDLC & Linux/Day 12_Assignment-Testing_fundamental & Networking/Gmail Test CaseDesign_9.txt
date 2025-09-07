@@ -1,0 +1,27 @@
+Let’s see the possible test cases for Gmail Inbox functionality.
+
+Verify that all the read and unread emails are displayed in the inbox
+Verify that the recently received email or unread emails are highlighted in bold in the Inbox section.
+Verify that the recently received email has correct sender‘s name or email id, subject of the email, its preview and date or time.
+Verifty that the recently received email’s sender’s name or email id, subject of the email, and date or time should be in bold and preivew text shouldn’t be in bold.
+Verfiy that the attachment icon is displayed next to the preview text of the email, if the email has any attachment.
+Verify that the Archive, Delete, Mark as read, Snooze options are displaying on hovering the unread email.
+Verify that the Archive, Delete, Mark as unread, Snooze options are displaying on hovering the read email.
+Verify that the Email id, Add to contacts, Open detailed view, Send email, Send message, Start video call, Schedule event options are displaying when we hover on the name/email of the read/unread email.
+Verify that the user is navigated to the email content when clicking on the email in the inbox.
+Verify that the content of the email is displayed correctly without any formatting issues.
+Verify that the attachment in the email is downloadable or not.
+Verify that the attachments can be downloaded as a single zip file.
+Verify that the attachments can be downloaded individually.
+Verify that the attachments can be viewable in the browser itself without downlading.
+Verify that the attachment is downloading in zip format, if the attachment size is more than 1 MB.
+Verify that the attachments are scanned for viruses once we try to download the file.
+Verify that the Reply and Forward buttons are displaying in the bottom of the email content.
+Verify that all the read emails are not highlighted.
+Verify that unread emails count is displayed beside ‘Inbox’ text in the left sidebar of Gmail.
+Verify that unread emails count is increased as per the number of new emails we received.
+Verify that the unread emails count is increased when we mark an email as unread.
+Verify that the unread emails count is decreased when we mark an email as read or opened.
+Verify that email recipients in CC are visible to all the users whose emails are present.
+Verify that email recipients in BCC are not visible to other users in the TO, CC or BCC section.
+Verify that email can be received from other domains like Hotmail, Outlook, Yahoomail or any other company domains

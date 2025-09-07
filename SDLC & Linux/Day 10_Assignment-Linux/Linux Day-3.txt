@@ -1,0 +1,539 @@
+######################################
+Working with locate and find commands
+######################################
+
+|-find and locate commands are used to search file in linux Machine.
+
+#Search files which contains apache
+
+locate apache
+
+#Search files and display count which contains apache
+
+locate -c apache
+
+# print all .txt files
+locate *.txt
+
+# print the count of all .txt files
+locate -c *.txt
+
+Note: 
+========
+|-In Linux, all the files and directories will be stored in local db i.e locate db. when we execute locate command it will search in  locate db (it will not search in actual file system).
+
+
+|- find command will search for the files and directories in actual linux file system
+
+|- find command providing advanced searching techniques
+
+ syntax:   find <file-name>
+  e.g:     find m1.txt
+
+# find files under given directory
+
+syntax:  find /directory-name -name <file-name>
+
+e.g:    find /home -name m1.txt
+  		
+	Error: find: ‘/home/john’: Permission denied
+
+
+	 sudo find /home -name m1.txt
+
+# display only emtpy files
+sudo find /home -type f -empty
+
+# diplay only empty directories
+sudo find /home -type d -empty
+
+Note:-
+=======
+|- find command will search in entire linux file system.
+
+Note:
+=====
+|- To get documentation of any command we can use 'man' command
+
+man find
+man ls
+man ping
+###################################
+Networking Commands
+##################################
+
+ifconfig : It is used to print ip address of your machine
+
+wget     : It is used to download a file based on URL
+     syntax: wget <url>
+     e.g   : wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.80/bin/apache-tomcat-9.0.80.tar.gz
+
+
+curl: It is used to send HTTP request to URL
+     syntax: curl <url>
+     e.g:    curl https://jsonplaceholder.typicode.com/posts
+
+ping: It is used to check network connectvity
+     syntax: ping <url>
+      e.g:   ping www.google.com
+
+
+##########################################################
+How to install required software in linux
+#########################################################
+
+sudo yum install httpd
+
+
+What is package Manager
+=========================
+|- It is a tool that allows users to install, remove, upgrade softwares on an operating system.
+
+Ex: yum, apt, rpm, deb, chocklate etc...
+
+|- Linux Package Managers are used to install, remove,upgrade packages in linux os.
+
+
+What is Package?
+=================
+
+|- Package means it is one application.
+
+Ex: httpd, git,maven,java,docker,jenkins, etc..
+
+
+
+Which package manager we need to use?
+=========================================
+RPM Based Linux Distributions: Amazon linux, Red Hat Linuc, Cent OS ettc..
+
+  Package Manager: yum,rpm,dnf
+
+DEB Based Linux Distributions: Ubuntu linux, Debian Linuc etc..
+  Package Manager: apt
+
+Top 5 Package Managers
+=========================
+1) YUM : yellowdog Updater, Modified
+2) APT : Advanced Packaging Tool
+3) RPM : Red Hat Package Manager
+4) DPKG : Debian Package Management System
+5) DNF  : Dandified YUM
+
+
+Q) How to install webserver in Red Hat Linux?
+==================================================
+sudo yum install httpd
+
+Q) How to install webserver in Ubuntu?
+========================================
+sudo apt install apache2
+
+
+
+####################################################
+How to deploy static website in Linux machine
+#####################################################
+
+|- To run web application we need webserveer
+
+Note: httpd we can use as a webserver (it is apache webserver)
+
+sudo yum update
+sudo yum install httpd
+sudo service httpd start
+
+Note: Enable HTTP Protocol with 80 port in Security group(inbound rules) of our EC2 instance
+
+- After enabling 80 port in security group we can access our website uisng EC2 instance public ip
+
+
+- To change web page content we can use below command
+ cd /var/www/html
+ sudo vi index.html(write the content in index.html file and save it)
+
+
+# We can remove httpd server from our machine
+
+sudo yum remove httpd
+
+
+#############################################################
+Working With Linux File Permissions and User Accounts
+###############################################################
+
+|- A file can have 3 permissions
+
+1) Read (r)
+2) Write (w)
+3) Execute (X)
+
+|- File permissions are divided into 3 sections
+
+Section-1 : User Permissions (first 3 characters represents user permissions)
+
+Section-2 : Group Permissions (from 4th to 6th characters represents group permissions)
+
+Section-3 : Others Permissions (From 7th to 9th characters others permissions)
+
+  rwxrwxrwx
+
+
+
+User  -> having read,write & execute permissions
+Group -> having read,write & execute permissions
+others -> having read,write & execute permissions
+ 
+
+  rw-rw-r--
+
+User  -> having read,write  permissions
+Group -> having read,write  permissions
+others -> having only read permissions
+
+ r--r--r-x
+
+User  -> having read  permissions
+Group -> having read  permissions
+others -> having  read & execute permissions
+
+###########################
+Symbolic
+############################
+Symbol		Description
+u		user
+g		group
+o		other
+a		all(user+group+other)
+
+
+Operation	Meaning
+=======================
++		add permision
+-		remove permission
+=		set exact permission
+
+
+################################
+Modifying File Permissions
+###############################
+
+|- Using 'chmod' command we can change file permissions in Linux OS.
+
+|-Using 'chmod' we can add or remove permission.
+
+# Add execute permission for the user
+chmod u+x linux.txt
+
+# Remove execute permission for the user
+chmod u-x linux.txt
+
+# Add execute permission for the group
+chmod g+x linux.txt
+
+# Remove execute permission for the group
+chmod g-x linux.txt
+
+
+# Add write permission for user
+chmod u+w linux.txt
+
+# Add write and execute permission for the user
+chmod u+wx linux.txt
+
+# Add execute permission for others
+chmod o+x linux.txt
+
+
+################################################
+File Permission with Numeric Numbers
+################################################
+Note: 4(Read), 2(Write), 1(Execute)
+
+
+0 - No permission
+1 - only Execute
+2 - Only write
+3 - Execute & Write
+4-  Only Read
+5 - Read & Execute
+6 - Read & Write
+7 - Read, write & Execute
+
+
+chmod 765 player.txt
+
+user   -> rwx
+group  -> rw
+others -> rx
+
+
+chmod 777 player.txt
+
+user  -> rwx
+group -> rwx
+other -> rwx
+
+
+
+############################################
+Working with User Accounts in Linux
+#############################################
+
+|- Linux is a multi-user operating system
+|- with in one linux machine we can create multiple user accounts
+
+|-Multiple users can access one linux at a time and they can perofrm multi-tasking.
+
+Note: Every linux machine will have 'root' account (super user)
+
+# Switch to root user
+ sudo su
+
+Note: To perform admin activities we will use 'sudo' permission
+
+
+#####################
+create user in linux
+#####################
+
+# create user
+sudo useradd <username>
+
+# verify account details
+ id <user-name>
+
+# create a group
+sudo groupadd <groupname>
+
+# Add user to group
+sudo usermod -aG <group-name> <user-name>
+
+# Remove user from the group
+sudo gpassed -d <user-name> <group-name>
+
+# Delete group
+sudo groupdel <group-name>
+
+# delete user
+sudo userdel <username>
+
+# Display all groups
+cat /etc/group
+
+# list all users in linux
+cat /etc/passwd
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

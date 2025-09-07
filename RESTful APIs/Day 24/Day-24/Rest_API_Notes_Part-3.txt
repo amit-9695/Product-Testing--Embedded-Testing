@@ -1,0 +1,378 @@
+What is a webservice?
+========================
+|-A webService is a software system designed to support interoperable machine-to-machine interaction over a network.
+
+|-It allows different application to exchange data and functioality regardless or their underlying technology or platforms.
+
+|-Web Services are used to exchange data between two incompatible applications
+
+|-Web Services do not necessarily have a user interface since it is used as a component in an end to end application.
+
+|-Web Services can be accessed by applications of different languages and platforms
+
+
+Following are some of the common benefits of Web Services.
+
+|-Integrates with other systems easily irrespective of the difference in technology or platform - Interoperability
+
+|-Creates reusable components - Reusability
+
+|-Saves cost, effort and time - Ease of use
+
+Types of Web Services
+======================
+|-SOAP-based Web Services are described, discovered and accessed using the standards that are recommended by W3C.
+
+|-RESTful Web Services are REST architecture based ones.
+
+|- As per REST architecture, everything is a resource. 
+
+|-A resource (data/functionality/web page) is an object that has a specific type and associated data. Also, it has relationships to other resources and a well-defined set of methods that operate on it.
+
+|- RESTful web services are light-weight, scalable, maintainable and leverage the HTTP protocol to the maximum.
+
+
+RESTful Web Service
+=====================
+|-REST is an architectural style.
+
+|-REST leverages HTTP Protocol.
+
+|-REST is straight forward in handling requests and responses. 
+
+|-Since REST supports multiple data formats other than XML, there is no overhead of wrapping the request and response data in XML. Also, REST uses the existing HTTP protocol for communication. All these factors together make REST, lightweight.
+
+
+REST Principles
+===================
+ Uniform Interface
+
+In REST, data and functionality are considered as resources. Every resource has a representation (XML/JSON) and a URI to identify the same.
+
+Resources are manipulated using HTTP's GET, POST, PUT and DELETE methods.
+
+We can use the HTTP Methods for the following operations on the resources.
+
+HTTP Method		CRUD Operation			Description
+GET			Read				Fetches a resource
+POST			Create				Adds an existing resource to a server
+PUT			Update		Transfers a resource to the server and overwrites the existing resource
+
+DELETE			Delete				Discards resources
+
+ 
+Example: If Customer is a resource, then Customer details can be added, deleted, updated or retrieved. If the blog is another resource, then the operations that we can perform on the blog will be read, create, update or delete.
+
+Advantage: Single URI can perform multiple operations on the resource.
+
+
+Stateless
+==============
+
+|-The interaction that takes place between the service provider and consumer is stateless.
+
+|-Being stateless, the server will never store the state information of its clients. Rather, every request from a service consumer should carry all the necessary information to make the server understand and process the request.
+
+Advantage: Statelessness ensures that the requests from a consumer should get treated independently. This helps to scale the APIs (making them available in multiple servers) to support a large number of clients concurrently. Any server is free to serve any client since there is no session related dependency. Also, REST APIs stay less complex as server-side state synchronization logic is removed. On top, the performance of APIs is improvised because of less space occupation (no space is required for state-related info).
+
+
+Client-Server
+=================
+
+Enforces the separation of concerns that helps to establish a distributed architecture. And, this is the most foundational constraint. Because of this distributed architecture with separation of concerns, the change in one component will not affect other components. In simple words, the components stay loosely coupled making them more manageable.
+
+Advantage: Supports the independent evolution of the client and server side logic.
+
+
+REST API Request Format
+=========================
+|-A Rest request usually includes:
+
+1.HTTP Method
+===============
+|-Specify the type of operation:
+
+Method			Description
+_______________________________________
+GET			Retrieve Resource(data)
+POST			Create new Resource
+PUT			Update existing Resource
+DELETE			Delete Resource
+PATCH			Partially update Resouce
+
+
+
+2.URL(Endpoints)
+==================
+https://jsonplaceholder.typicode.com/users
+
+Base URL:https://jsonplaceholder.typicode.com
+End Points:/users
+           /posts
+           /comments
+
+
+3.Headers:
+===============
+|-Send to send metadata.
+|-Headers contains information in the form of key-value pair.
+
+Content-Type:application/json
+
+
+4.Request Body(POST,PUT,PATCH)
+==================================
+|-Whenever you are sending if any information needs to pass from client to server then you can pass that  information in the form request body.
+
+{
+    "name":"peter",
+    "email":"peter@gmail.com"
+}
+
+REST API Response Format:
+===========================
+1.Status Code:
+|-When you make request to the server that request may be sucessfully or may not be then server return status code which indicating your request status.
+
+HTTP response status codes indicate whether a specific HTTP request has been successfully completed. Responses are grouped in five classes:
+
+1.Informational responses (100 – 199)
+2.Successful responses (200 – 299)
+3.Redirection messages (300 – 399)
+4.Client error responses (400 – 499)
+5.Server error responses (500 – 599)
+
+
+Status Code		Meaning
+_____________________________________________
+200			OK(successfulu GET)
+201			Created(Sucessful POST)
+204			No Content(Suessful DELETE)
+400			Bad Request
+401			Unauthorized
+404			Not Found
+500			Internal Server Error
+
+
+
+Response Headers:
+==================
+|-It contains additionaly information about response.
+|-It contains meta data about response.
+
+Response Body:
+=====================
+|-Usually JSON-formatted data
+
+
+
+
+
+
+
+
+How to Test Rest api
+========================
+Step-1: Install the requests library
+	pip install requests
+
+Step-2 Import the Libaray in python
+	import requests
+
+
+Step-2 Make GET Request.
+
+Project Structure:
+=====================
+rest_api_test_practice/
+	|-api
+           |-__init__.py
+	   |-client.py
+	|-tests
+	   |-__init__.py
+	   |-test_posts.py
+
+
+
+
+client.py
+==========
+import requests
+
+BASE_URL="https://jsonplaceholder.typicode.com"
+
+def get_posts():
+    return requests.get(f"{BASE_URL}/posts")
+
+def get_post_by_id(post_id):
+    return requests.get(f"{BASE_URL}/posts/{post_id}")
+
+
+test_post.py
+=============
+import pytest
+from api import client
+
+def test_get_all_posts():
+    response=client.get_posts()
+    assert response.status_code==200
+    posts=response.json()
+    assert isinstance(posts,list)
+    assert len(posts)>0
+
+def test_get_posts_by_id():
+    response=client.get_post_by_id(1)
+    assert response.status_code==200
+    post=response.json()
+    assert post["id"]==1
+    print(post)
+    assert 'title' in post
+
+
+Examples:
+==========
+
+
+
+✅ Step 1: Install Required Libraries
+	pip install requests pytest jsonschema
+
+✅ Step 2: Create a Sample API Test – Basic Example Using requests
+
+📂 Folder structure:
+rest_api_testing/
+│
+├── test_get_users.py
+📄 test_get_users.py
+
+import requests
+
+def test_get_users():
+    url = "https://reqres.in/api/users?page=2"
+    response = requests.get(url)
+
+    assert response.status_code == 200
+    data = response.json()
+
+    assert data['page'] == 2
+    assert len(data['data']) == 6
+    assert any(user['first_name'] == "Michael" for user in data['data'])
+
+Run:
+	pytest test_get_users.py -v
+
+✅ Step 3: Test POST Request
+
+def test_create_user():
+    url = "https://reqres.in/api/users"
+    payload = {
+        "name": "morpheus",
+        "job": "leader"
+    }
+
+    response = requests.post(url, json=payload)
+    assert response.status_code == 201
+    data = response.json()
+
+    assert data["name"] == "morpheus"
+    assert data["job"] == "leader"
+
+✅ Step 4: Test PUT (Update)
+
+def test_update_user():
+    url = "https://reqres.in/api/users/2"
+    payload = {"name": "neo", "job": "zion leader"}
+
+    response = requests.put(url, json=payload)
+    assert response.status_code == 200
+    data = response.json()
+
+    assert data["name"] == "neo"
+    assert data["job"] == "zion leader"
+
+✅ Step 5: Use pytest Setup + Hooks
+
+📂 Folder:
+rest_api_testing/
+├── conftest.py
+├── test_user_api.py
+📄 conftest.py
+
+import pytest
+
+@pytest.fixture
+def base_url():
+    return "https://reqres.in/api"
+
+📄 test_user_api.py
+
+import requests
+
+def test_get_single_user(base_url):
+    response = requests.get(f"{base_url}/users/2")
+    assert response.status_code == 200
+    assert response.json()["data"]["id"] == 2
+
+✅ Step 6: Parametrize Tests
+
+import pytest
+import requests
+
+@pytest.mark.parametrize("user_id", [1, 2, 3, 4])
+def test_user_exists(user_id):
+    response = requests.get(f"https://reqres.in/api/users/{user_id}")
+    assert response.status_code == 200
+    assert response.json()["data"]["id"] == user_id
+
+✅ Step 7: Negative Test Case
+
+def test_user_not_found():
+    response = requests.get("https://reqres.in/api/users/999")
+    assert response.status_code == 404
+
+✅ Step 8: Save Response to File
+
+def test_save_response_to_file():
+    response = requests.get("https://reqres.in/api/users/2")
+    with open("user_response.json", "w") as f:
+        f.write(response.text)
+
+✅ Step 9: Full Test Suite with pytest
+Create tests/ folder and run:
+
+pytest tests/ -v --maxfail=2 --disable-warnings
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

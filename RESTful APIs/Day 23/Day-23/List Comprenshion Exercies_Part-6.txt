@@ -1,0 +1,71 @@
+Ques:-1
+Find all of the words in a string that are less than 4 letters
+sentence = 'On a summer day somner smith went simming in the sun and his red skin stung'
+
+examine = sentence.split()
+
+result = [word for word in examine if len(word) >=4]
+print(result)
+
+
+Que:-2
+Produce a list of tuples consisting of only the matching numbers in these lists 
+list_a = [1, 2, 3,4,5,6,7,8,9]
+list_b = [2, 7, 1, 12].  
+Result would look like (4,4), (12,12)
+
+list_a = [1, 2, 3,4,5,6,7,8,9]
+list_b = [2, 7, 1, 12]
+
+result = [(a, b) for a in list_a for b in list_b if a == b]
+print(result)
+
+Que:-3
+Given numbers = range(20), produce a list containing the word 'even' if a number in the numbers is even, and the word 'odd' if the number is odd.  
+Result would look like ['odd','odd', 'even']
+
+result = ['even' if n%2 == 0 else 'odd' for n in range(20)]
+print(result)
+
+Que:-4
+Get only the numbers in a sentence like 'In 1984 there were 13 instances of a protest with over 1000 people attending'.  Result is a list of numbers like [3,4,5]
+
+sentence = 'In 1984 there were 13 instances of a protest with over 1000 people attending'
+words = sentence.split()
+result = [number for number in words if not number.isalpha() ]
+print(result)
+
+Que-5
+Find the common numbers in two lists (without using a tuple or set) 
+list_a = [1, 2, 3, 4]
+list_b = [2, 3, 4, 5]
+
+list_a = [1, 2, 3, 4]
+list_b = [2, 3, 4, 5]
+common = [a for a in list_a if a in list_b]
+print(common)
+
+Que-6:
+ Get the index and the value as a tuple for items in the list 
+["hi", 4, 8.99, 'apple', ('t,b','n')]. 
+Result would look like [(index, value), (index, value)]
+
+items = ["hi", 4, 8.99, 'apple', ('t,b','n')]
+result = [(index, item) for index, item in enumerate(items)]
+print(result)
+
+
+Que-7:
+Create a list of all the consonants in the string "Yellow Yaks like yelling and yawning and yesturday they yodled while eating yuky yams"
+
+
+sentence = "Yellow Yaks like yelling and yawning and yesturday they yodled while eating yuky yams"
+
+result = [letter for letter in sentence if letter not in 'a,e,i,o,u, " "']
+
+Que-8:
+Count the number of spaces in a string
+
+some_string = 'the slow solid squid swam sumptuously through the slimy swamp'
+spaces = [s for s in some_string if s == ' ']
+print(len(spaces))

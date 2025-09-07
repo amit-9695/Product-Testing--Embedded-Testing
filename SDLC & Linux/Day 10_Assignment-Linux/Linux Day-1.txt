@@ -1,0 +1,409 @@
+Linux
+======
+
+What is Operating System(OS)?
+===============================
+
+|-Operating System is a software which is used to interact with computer.
+
+|-OS will act as mediator between users and computer hardware components.
+
+|-OS is mandatory to use any computer.
+
+|-OS provides environment to run other applications
+  Ex: Notepad,Paint, Browser etc...
+
+Windows Operating System
+==========================
+|-It is having GUI(Graphical User interface)
+
+|-It is Commercial(paid)
+
+|-It is single user based operating system.
+
+|-Less Security Features
+
+|-It is recommended for Personal Use.
+
+
+Linux Operating System
+========================
+
+|-Linux is Free & Open Source OS
+
+|-Linux is Multi User Based OS
+
+|-High Security Features
+
+|-Linux is Community Based OS
+
+|-Recommended for Appliication Servers,databases etc.
+
+
+Linux OS Distribution
+=====================
+
+|-As Linux OS is open source, so many people and companies taken that linux OS and modified according to their requirement and released into market
+  with different names those are called as Linux Distribution
+
+RED HAT
+Ubuntu OS
+Cent OS
+Fedora
+Amazon Linux
+
+
+
+🗂️ Linux Directory Structure Overview
+========================================
+|-The root directory / is the top of the hierarchy, and everything stems from it.
+
+📁 Top-Level Directories:
+
+Directory				Description
+/				Root directory — the starting point of the filesystem
+/bin				Essential user binaries (commands like ls, cp, mv, rm, etc.)
+/sbin				System binaries (like reboot, fdisk, used by root)
+/etc				Configuration files for the system
+/dev				Device files (like /dev/sda for disks, /dev/null, etc.)
+/proc				Virtual filesystem for process and system info (like /proc/cpuinfo)
+/var				Variable files like logs, mail, spool files
+/tmp				Temporary files, cleared on reboot
+/usr				User-installed software, libraries, and documentation
+/home				Home directories of all users (e.g., /home/alice)
+/root				Home directory of the root user
+/boot				Boot loader files (like vmlinuz, initrd.img)
+/lib, /lib64			Essential shared libraries needed by /bin and /sbin
+/media				Mount point for removable media (USB, CD-ROM)
+/mnt				Temporary mount point for filesystems
+/opt				Optional software packages
+/srv				Data for services like FTP, HTTP, etc.
+
+How to connect linux in AWS
+================================
+
+Step-1 Create linux instance in AWS cloud
+
+Goto the AWS Console and search in service tab EC2 service
+
+
+Then click on Launch Instance
+
+Enter Name and tags value
+-mynewlinux
+
+
+Select Application and OS Images (Amazon Machine Image)
+
+
+
+
+
+What is use of putty
+=======================
+|-putty is a software or application that helps to connect you with linux that's available in the cloud.
+
+
+How to connect with AWS linus using Putty
+============================================
+
+Step-1 Open the putty software.
+
+Step-2 copy the public ip of your linux instance into Host name
+
+Step-3 Goto Connection cateogry & expand it
+
+Step-4 Select SSH and expand it.
+
+Step-5 Select Auth and expand it.
+
+Step-6 Select credetials options and then it ask for public key for authentication & then click on Browse button and then select your .ppk file from your system & then click on open button.
+
+
+
+Linux Command
+=================
+
+whoami 
+
+|-this command allow linux user to see the currently logged-in user.
+|-The output displays the username of the effective user in the current shell.
+
+
+pwd
+|-print working directory
+
+# To Make directory
+
+mkdir <dir-name>
+
+e.g:- mkdir aws
+
+# To delete empty directory
+
+rmdir <dir-name>
+
+e.g: rmdir aws
+
+
+# To list out all files & directories in present working directory
+
+ls -l
+
+# To move inside the directory(change directory)
+
+cd <dir-name>
+
+e.g: cd aws
+
+# To come out from the directory
+cd ..
+
+
+
+# Display current month calendar
+cal
+
+Note: if cal command not working then install ncal module
+	sudo apt install ncal
+
+# Display current date and time
+date
+
+# To clear terminal
+clear
+
+# To logout session.
+exit
+
+
+
+Linux File System
+===================
+|-In Linux everything is considered as file.
+
+|-In Linux there are 3 different types of files
+
+1.Regular File or ordinary files
+2. Directory files
+3.Special files or device files
+
+1.Regular File or ordinary files
+===================================
+
+|- Ordinary files can contain text,data or program information.
+|- An ordinary file can't contain another files, or directory.
+
+
+2. Directory files
+===================
+|- We can described directories as containers that can hold files and other directorues.
+|-Directory is group of files.
+|-Directory is divided into two types
+
+ - Root Directory
+     |-Strictly speaking, there is only one root directory in your system which is denoted by /(forward slash)
+     |-It is root of your entire file system and can not be renamed or deleted
+ 
+-Sub directory
+  |-Directory under root(/) directory is subdirectory which can be created,renamed by the user.
+
+
+3.Special files or device files
+================================
+|- Special files represent input/output devices, like a tty(terminal), a disk drive, or a printer.
+
+
+
+
+
+
+
+Creating New File:
+=====================
+|- We can create files by using two commands such as cat and touch.
+
+
+touch command
+==============
+|-touch command can be used to create empty files.
+|-By using touch we can create several empty files quickly, but by using touch we can't insert the data to the files.
+
+# To create empty files
+
+touch <filename>
+
+e.g:- touch test1.txt
+
+# To create multiple empty files
+
+touch <filenam1> <filename2> <filename3>
+
+e.g:- touch test2.txt test3.txt test4.txt
+
+
+cat command
+=============
+
+# Create file with Content
+
+cat > <file-name>
+
+Note: After writing data press 'CTRL+ d' to save and close that file.
+
+E.g: cat > test5.txt
+
+
+# Show the file content (prin the file data)
+cat <file-name>
+
+E.g: cat test5.txt
+
+# Append data to existing file
+
+cat >> <file-name>
+
+e.g: cat >> test6.txt
+
+# To delete a file
+rm <filename>
+
+e.g: rm test1.txt
+
+# To delete non-empty directories
+
+rm -r <dirname>
+
+Note:- 'r' represents recursive
+
+e.g: rm -r aws
+
+
+# Rename files & directories
+
+mv <present-name> <new-name>
+
+
+Copying Files:
+================
+
+|-There are many times when you will want to copy a file or directory.
+|- cp command is used to copy a file.
+|-The command name cp is an abbrevation for "copy"
+
+# Copy data from one file to another file
+
+cp source_file destination_fle
+
+|-This creates a duplicate copy of source_file as destinationf_file
+|-Both files will exist with same content
+
+Copy File Content to Another File(using cat)
+================================================
+cat source.txt >destination.txt
+
+|-Overwrites destination.txt with the content of source.txt
+|- use >> instead of > to append instead of overwrite
+
+
+cat source.txt >>destination.txt
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

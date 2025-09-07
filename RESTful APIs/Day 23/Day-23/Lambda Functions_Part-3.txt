@@ -1,0 +1,120 @@
+Anonymous Functions:
+========================
+|-Sometimes we can declare a function without any name,such type of nameless functions are called anonymous   functions or lambda functions.
+
+|-The main purpose of anonymous function is just for instant use(i.e for one time usage)Normal Function:
+
+|-We can define by using def keyword.
+
+def squareIt(n):
+ return n*n
+
+lambda Function:
+===================
+
+|-We can define by using lambda keyword
+	lambda n:n*n
+
+Syntax of lambda Function:
+===============================
+	lambda argument_list : expression
+
+Note: By using Lambda Functions we can write very concise code so that readability of the program will be improved.
+
+
+Q. Write a program to create a lambda function to find square of given 
+
+s=lambda n:n*n 
+print("The Square of 4 is :",s(4)) 
+print("The Square of 5 is :",s(5)) 
+
+Output
+The Square of 4 is : 16 
+The Square of 5 is : 25
+
+Q. Lambda function to find sum of 2 given numbers
+s=lambda a,b:a+b 
+print("The Sum of 10,20 is:",s(10,20)) 
+print("The Sum of 100,200 is:",s(100,200)) 
+
+Output
+The Sum of 10,20 is: 30 
+The Sum of 100,200 is: 300
+
+
+Q. Lambda Function to find biggest of given values.
+s=lambda a,b:a if a>b else b 
+print("The Biggest of 10,20 is:",s(10,20)) 
+print("The Biggest of 100,200 is:",s(100,200)) 
+ 
+ Output
+The Biggest of 10,20 is: 20 
+ The Biggest of 100,200 is: 200 
+
+Note:
+|-Lambda Function internally returns expression value and we are not required to write return statement   explicitly.
+
+Note: Sometimes we can pass function as argument to another function. In such cases 
+lambda functions are best choice
+
+
+Exercies:
+
+1. Write a  Python program to create a lambda function that adds 15 to a given number passed in as an argument,    also create a lambda function that multiplies argument x with argument y and prints the result.
+
+Sample Output:
+25
+48
+
+2. Write a  Python program to create a function that takes one argument, and that argument will be multiplied    with an unknown given number.
+
+Sample Output:
+Double the number of 15 = 30
+Triple the number of 15 = 45
+Quadruple the number of 15 = 60
+Quintuple the number 15 = 75
+
+
+3.Write a  Python program to square and cube every number in a given list of integers using Lambda.
+
+Original list of integers:
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+Square every number of the said list:
+[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+Cube every number of the said list:
+[1, 8, 27, 64, 125, 216, 343, 512, 729, 1000]
+
+
+4.Write a  Python program to find if a given string starts with a given character using Lambda.
+Sample Output:
+True
+False
+
+5. Write a python program to generate a function to double a specified number.
+
+The output is:
+
+Specified number: 27.2
+
+Expected Answer:
+The double number of 27.2 = 54.4
+
+6.Write a python program to generate a function to get the power of a specified number.
+
+The output is:
+
+Power of: 5, 6, 7
+Specified number: 3
+
+Expected Answer:
+The power of five for number 3 = 15
+The power of six for number 3 = 18
+The power of seven for number 3 = 21
+
+7. Write a python program to generate a lambda function to check whether a given string is a number or not. (True or False)
+
+The output is:
+
+Example of Expected Answer:
+Is the given 3687 a number: True
+Is the given Python a number: False

@@ -1,0 +1,103 @@
+GiT Switch Commands
+=====================
+
+|-The git switch command is a user-friendly command way to switch branches in GIT.
+
+|-git switch is used exclusively for branch management
+ -Switching to an existing Branch
+ -Creating a new Branch
+ -Checking out remote branches to local
+ -Reducing confusion from multi-use git checkout
+
+Syntax:
+=======
+	git switch [<options>] <branch>
+
+Options		Description
+_____________________________
+-c		Creates a new branch before switching to it
+-t 		create a new branch to track a remote branch
+-d		Attemt to detach HEAD
+
+
+Basic Usage:
+===============
+	git switch <branch-name>
+
+
+
+#Switch to Existing Branch
+	git switch main
+
+#Create & Switch to a New Branch
+	git switch -c feature
+
+
+#Switch to Remote branch
+	git switch -c origin/feature
+
+|-Creates and switches to a local branch that tracks the remote branch
+
+
+
+
+
+Git Fetch
+=========
+|-When you are working on with other collaborators on a github repo.
+
+|-One of your teamate has pushed up the changes to the master branch,but my local repo doesn't know!.
+
+|-Then how do i get those changes??
+
+
+|-This is where git fetch and git pull come into play.
+
+|-git fetch and pull get those changes from the github repo to your local repo.
+
+
+|-Fetching allows us to download changes from remote repository.
+|-But those changes will not be integrated to our woring files.
+
+|-It just lets you see what others have been working in, without merging those changes into your local repository
+
+|-Just think of git fetch as link
+
+Command for git fetch is
+==========================
+Git fetch <remote>
+
+|-This command fetches branches and history from a specific remote repository.it only updates the remote tracking branches.
+
+|-Git fetch origin would fetch all changes from the origin remote repository
+|-if not specified remote it defaults to origin
+
+
+|-We can also fetch a specific branch from a remote using the command
+
+	git fetch <remote> <branch>
+
+|-for example git fetch origin master would retrieve the latest information from the master branch on the origin remote repository
+
+|-After fetching the changes. I will have those changes on my machine
+
+|-But if i want to sess then i have to do the checkout to origin/master/
+
+|-your local master branch will be untouched.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    

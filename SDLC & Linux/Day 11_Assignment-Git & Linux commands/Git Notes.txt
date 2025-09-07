@@ -1,0 +1,578 @@
+What is Git?
+===========
+|-Git is a version control system that track changes to computer files, especailly soure code in software development.
+
+|-It allows mulitple developers to work together on a project.
+
+
+|-Git is distributed, open-source version control system that enables you to store code,track revsion  history,merge code changes and revert to earlier code version when needed.
+
+
+Git Commands
+====================
+
+git help
+|-It provides frequenctly used several git commands
+
+git help <cmd-name>
+|-It opens documentaation of that particular command
+
+What is Git Repository?
+========================
+|-A Git Repository is a virtual storage of your project.
+
+|-It allows you to save versions of your code, which you can access when needed.
+
+
+git init
+|-It is used to create empty repository or re-initalize existing repository
+
+git status
+ |-This command will display status of current repository
+
+
+
+Staged Files
+================
+|-Files which are added and they are ready to commit
+|-These file names will be displayed in green color
+
+Un-Staged Files
+==================
+|-Modified files will be displayed here, we need to stage these files to commit
+|-These file name will be displayed in red color.
+
+Un-Tracked Files
+================
+|-Newly created files,we need to stage them to commit
+|-These file names also will be displayed in red color
+
+
+
+git add:
+ |-This command is used to add file to staging area.
+
+	Syntax: git add <file-name>
+
+
+
+git add:
+    |-This command is used to add file to staging area
+
+Syntax: git add <file-name>
+Syntax: git add --a 
+        |-To add all files at a time
+
+
+git rm:
+    |-This command is used to un-stage newly created files
+
+Syntax: git rm --cached <file-name>
+
+
+git commit:
+     |-This command is used to commit our changes to git local repository
+
+Syntax: git commit -m "commit-msg"
+
+Note: Git local repository will be available in our machine only.
+
+Note: When we execute commit command it will consider all the files which are in staging area.
+
+
+
+Move Changes From LocalRepository to Central Repository
+========================================================
+|-A Central repository is a remote storage location where code and project  files are stored and managed.
+
+|-It serves as the main hub for collaboration,allowing multuple developers to push and pull changes.
+
+|-In Git,the central repository is typically a remote repository such as:
+ -GitHub
+ -GitLab
+ -Bitbucket
+ -Azure Repos
+
+|-git remote add command is used to link a local repository to a remote repsitory
+
+
+	git remote add <remote_name> <repo_url>
+
+|-<remote_name> : Usually origin(default name for the remote)
+|-<repository_url>: The URL of your central repository
+
+ git remote add origin https://github.com/trivedi-ashutosh2013/PCAT_Trg.git
+
+git push -u origin main
+
+git push:
+===========
+|-The git push command is used to upload your local commits to a remote repository
+
+	git push <remote_name> <branch>
+	git push -u origin main
+
+
+
+
+
+
+
+
+
+
+
+
+Note:-
+========
+Git Configuration
+===================
+
+git config --global user.name "your Name"  # Set username
+git config --global user.email "Your email" #Set Email
+
+#View configuration settings
+git config --list 
+
+
+
+Initalize & Clone
+======================
+#Initalize a new Git Repository
+git init
+
+#Clone an existing repository
+git clone <repo_url>
+
+
+Check status & log
+===================
+#Show the status of chanages
+
+git status
+
+#View commit History
+git log
+
+#Compact commit history
+git log --oneline --graph --all
+
+
+Staging & Committing Changes
+================================
+# Add a specific file to staging
+
+git add <file-name>
+
+# Add all changes to staging
+git add .
+
+#Commit changes with a message
+git commit -m "commit message"
+
+
+
+
+
+Flow:
+======
+             git add                      git commit				git push
+Working Area--------------->Stagging Area---------------->Local Repository----------------->Remote Repository
+
+
+
+
+
+
+
+
+
+
+
+Git Rename and Restore files in Git Repository
+===================================================
+
+|-Using git mv ensures that Git tracks the move or rename operation explicity.
+
+|-While you can achieve the same result by manually moving/renaming the file and then staging t with git add and gir rm, git mv combines these steps into one
+
+
+Restore a Modified file to the Last Commited Version
+=====================================================
+|-This reverts the file in your working directory to match the last commited state in the repository
+
+git restore <file>
+
+
+Unstage changes from the staging Area
+======================================
+
+git restore --staged <file>
+
+|-This removes changes from the staging area but keeps them in the working directory
+
+
+
+
+Git Diff Commands
+====================
+|-Diff command is used in git to track the difference between the changes made on a file.
+
+|-Diff command take two inputs and reflects the difference between them 
+
+
+|-To check the changes in the working area and the staged area
+	Git diff
+
+|-To check the changes between the stage area and the repository area
+	Git diff --staged
+
+|-To check the changes between the working area and the repository area
+	Git diff head
+
+
+
+
+What is Branch in Git?
+=========================
+
+|-When we create GIT repository by default it will provide master branch
+|-Branches are nothing but code bases.
+
+|-We can create several branches in Git repository
+
+|-Generally in git repository we will create branches like below
+	-master(default)
+	-develop
+	-feature
+	-QA
+	-UAT
+	-release
+
+|-Branches in Git allow multiple developers to work on different features without affecting the main code.
+|-The default branch is usually main or master.
+
+Common Git Branch Commands
+==============================
+🔹 Check Current Branch
+	git branch
+
+🔹 Lists all branches and highlights the active one.
+
+
+🔹 Create a New Branch
+
+	git branch feature-branch
+🔹 Creates a new branch named feature-branch.
+
+
+🔹 Switch to Another Branch
+	git checkout feature-branch
+
+or (Git 2.23+)
+
+git switch feature-branch
+🔹 Moves to feature-branch.
+
+
+🔹 Create & Switch to a New Branch
+	git checkout -b feature-branch
+
+or (Git 2.23+)
+
+	git switch -c feature-branch
+
+
+🔹 Rename a Branch
+	git branch -m old-branch-name new-branch-name
+
+🔹 Renames the branch.
+
+
+🔹 Delete a Branch
+Locally:
+
+	git branch -d feature-branch
+
+🔹 Deletes the branch (safe delete). It prevents deletion if unmerged changes exist.
+
+	git branch -D feature-branch
+
+
+
+🔹 Force delete (even if unmerged changes exist).
+
+Remotely:
+	git push origin --delete feature-branch
+🔹 Deletes the branch from the remote repository.
+
+
+
+🔹 List All Branches (Local & Remote)
+	git branch -a
+🔹 Shows both local and remote branches.
+
+
+
+🔹 Merge a Branch into the Current Branch
+
+	git checkout main
+	git merge feature-branch
+🔹 Merges feature-branch into main.
+
+
+
+
+Git Merge,conflicts
+===================================
+
+
+
+
+
+
+Git Rebase
+===========
+|-Rebase is one of the most powerful Git command
+|-Rebasing is often used as an alternative to merging.
+|-Rebasing a branch updates one branch with another by applying the commits of one branch on top of the commits   of another branch.
+|-Git Rebase is used to clean up our local commit history
+|-Rebase is a advanced command which is used rarely
+|-Merge preserve history
+|-Rebase doesn't preserve history
+
+Do not use Rebase when
+======================
+|-The branch is public when it is shared to all the developers
+|-Most of the teas prefer merge over rebase.
+
+Common places where we use rebases
+====================================
+|-Cleaning up your commits before sharing your branch.
+|-pulling changes from another branch without merge
+
+
+
+
+Git pull vs git fetch
+=======================
+
+|-When you are working on with other collaborators on a githu repo.
+
+|-One of your teammate has pushed up the changes to the master branch,but my local repo doesn't know.
+
+|-The how do i get those changes??
+
+|-This is where git fetch and git pull come into play
+
+|-git fetch and pull get those changes from the github repo to your local repo
+
+|-But these two commands has some differences. let''s see
+
+
+workspace			staging			local repo		Remote Repo
+__________________________________________________________________________________________
+ |- git add-------------------->|-----git commit-------->|-------------->git push
+
+						         |<---------------git fetch
+
+
+
+
+|<------------------------------------------------------------------------------git clone/pull
+
+
+|-Fetching allows us to download changes from remote repository.
+|-But those changes will not be automatically integrated to our working files.
+
+|-It just lets you see what others have been working in,withour merging those changes into your local repo.
+
+|-Just think of git fetch as link
+
+|-please go and get the latest information from github but don't add it into my working directory.
+
+
+Command for git fetch is
+============================
+Git fetch <remote>
+
+|-This command fetches branches and history from a specific remote repsitory.
+|-It only updates the remote tracking branches
+
+|-Git fetch orgin would fetch all changes from origin remote repository
+
+|-if not specified remote it defaults to origin.
+
+|-We can also fetch a specific branch from a remote using the command
+	git getch <remote> <branch>
+
+|-for example git fetch origin master would retrieve the latest information from the master branch on the origin remote repository.
+
+
+
+
+|-git fetch command that tells your local git to retrieve the latest meta-data info from original(yet doesn;t do any file transferring. it's more just checking to see if there are any changes available).
+
+|-git pull command will get latest changes from central repository to local repository(file transfering will happen here).
+
+
+                           git pull
+Remote Repository---------------------------------> Working directory
+    |						    |
+    |						    |git merge
+    |--->git fetch------------->Local Repo------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

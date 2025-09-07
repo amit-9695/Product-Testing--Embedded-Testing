@@ -1,0 +1,301 @@
+Q1. What does this code output?
+nums = [x*x for x in range(3)]
+print(nums)
+A. [1, 2, 3]
+B. [0, 1, 4]
+C. [0, 1, 2, 3]
+D. SyntaxError
+
+
+Q2. Which is equivalent to [x for x in range(5) if x % 2 == 0]?
+
+A. list(filter(lambda x: x % 2 == 0, range(5)))
+B. list(map(lambda x: x % 2 == 0, range(5)))
+C. filter(lambda x: x % 2 == 0, range(5))
+D. map(lambda x: x % 2 == 0, range(5))
+
+Q3. What is the output of this code?
+
+def gen():
+    yield 1
+    yield 2
+
+g = gen()
+print(next(g))
+print(next(g))
+A. 1 and 2
+B. 0 and 1
+C. None
+D. Error
+
+
+Q4. What does the yield keyword do in Python?
+
+A. Returns a value and exits the function
+B. Terminates a function
+C. Returns a generator object
+D. Declares a function
+
+Q5. Which of the following is not true about iterators in Python?
+
+A. Iterators implement __iter__() and __next__()
+B. iter(obj) returns an iterator
+C. next(obj) fetches the next item
+D. Iterators can be reset with reset()
+
+
+Q6. What will this code print?
+
+it = iter([10, 20, 30])
+print(next(it))
+print(next(it))
+A. 10 and 20
+B. 20 and 30
+C. 10 and 30
+D. Error
+
+Q7. What does this print?
+
+x = lambda a: a + 10
+print(x(5))
+A. 10
+B. 15
+C. 5
+D. Error
+
+
+Q8. Which is the correct syntax for a lambda function that squares a number?
+
+A. lambda x: return x*x
+B. def(x): return x*x
+C. lambda x: x*x
+D. lambda: x*x
+
+Q9. What will this code return?
+result = list(filter(lambda x: x > 2, [1, 2, 3, 4]))
+print(result)
+A. [1, 2]
+B. [3, 4]
+C. [1, 2, 3, 4]
+D. []
+
+Q10. What does this output?
+result = list(map(lambda x: x*2, [1, 2, 3]))
+print(result)
+A. [2, 4, 6]
+B. [1, 2, 3]
+C. [1, 4, 9]
+D. [0, 2, 4]
+
+Q11. What is the output of this code?
+
+from functools import reduce
+result = reduce(lambda x, y: x + y, [1, 2, 3, 4])
+print(result)
+A. 10
+B. [1, 2, 3, 4]
+C. 24
+D. Error
+
+
+Q12. Which module provides reduce in Python 3+?
+
+A. operator
+B. math
+C. functools
+D. reduce
+
+Q13. What is the output of the following list comprehension?
+[x for x in range(10) if x % 2 == 0 if x % 4 == 0]
+A. [0, 2, 4, 6, 8]
+B. [0, 4, 8]
+C. [4, 8]
+D. [0, 4]
+
+Q14. Which of the following best describes a generator expression?
+
+A. A list comprehension with parentheses
+B. A function that uses return
+C. A class implementing __iter__ and __next__
+D. A lambda function that yields values
+
+
+Q15. What will this code output?
+
+gen = (x * x for x in range(3))
+print(list(gen))
+print(list(gen))
+A. [0, 1, 4] and [0, 1, 4]
+B. [0, 1, 4] and []
+C. [] and []
+D. Error
+
+Q16. Which of the following makes a class iterable?
+
+A. __iter__() method returning an iterator
+B. __len__() method
+C. __str__() method
+D. __call__() method
+
+
+Q17. What does the following code do?
+
+class Counter:
+    def __init__(self):
+        self.num = 0
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if self.num >= 3:
+            raise StopIteration
+        self.num += 1
+        return self.num
+A. Infinite loop
+B. Iterator that returns 1 to 3
+C. Iterator that returns 0 to 2
+D. Syntax error
+
+Q18. What will this output be?
+
+f = lambda x, y=2: x + y
+print(f(3))
+A. 2
+B. 3
+C. 5
+D. Error
+
+
+Q19. Which of the following is invalid with lambda?
+
+A. lambda x: x + 1
+B. lambda x, y: x if x > y else y
+C. lambda x: print(x)
+D. lambda x: x**2
+
+Q20. Choose the correct way to filter out even numbers from a list:
+
+lst = [1, 2, 3, 4, 5]
+A. list(map(lambda x: x % 2 == 0, lst))
+B. filter(lambda x: x % 2 == 0, lst)
+C. list(filter(lambda x: x % 2 == 0, lst))
+D. list(filter(lambda x: x % 2 == 1, lst))
+
+Q21. What does this code return?
+
+list(map(str.upper, ['a', 'b', 'c']))
+A. ['a', 'b', 'c']
+B. ['A', 'B', 'C']
+C. ['a', 'B', 'C']
+D. ['Uppercase']
+
+
+Q22. What does this output?
+
+from functools import reduce
+reduce(lambda a, b: a if a > b else b, [4, 1, 7, 3])
+A. 1
+B. 4
+C. 7
+D. 3
+
+
+Q23. What will this return?
+
+from functools import reduce
+reduce(lambda x, y: x * y, [], 1)
+A. 0
+B. 1
+C. []
+D. Error
+
+Q24. Which of the following list comprehensions creates a list of squares for only odd numbers from 1 to 9?
+
+A. [x**2 for x in range(10)]
+B. [x*x for x in range(1, 10, 2)]
+C. [x**2 for x in range(1, 10) if x % 2 == 1]
+D. Both B and C
+
+Q25. What is the output of the following code?
+
+print([i+j for i in "ab" for j in "cd"])
+A. ['ac', 'ad', 'bc', 'bd']
+B. ['ab', 'cd']
+C. ['a', 'b', 'c', 'd']
+D. ['ac', 'bd']
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1.Answer: B
+2.Answer: A
+3.Answer: A
+4.Answer: C
+5.Answer: D
+6.Answer: A
+7.Answer: B
+8.Answer: C
+9.Answer: B
+10.Answer: A
+11.Answer: A
+12.Answer: C
+13.Answer: B
+14.Answer: A
+15.Answer: B
+(Generators can only be iterated once.)
+16.Answer: A
+17.Answer: B
+18.Answer: C
+19.Answer: C
+(print() returns None; lambdas are for expressions, not statements.)
+20.Answer: C
+21.Answer: B
+22.Answer: C
+(It finds the max using reduce.)
+23.Answer: B
+(Initial value of 1 is returned if the list is empty.)
+24.Answer: D
+25.Answer: A

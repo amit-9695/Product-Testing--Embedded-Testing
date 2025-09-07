@@ -1,0 +1,283 @@
+1. Which command is used to list all files and directories in Linux?
+
+a) ls
+b) list
+c) dir
+d) show
+
+
+2. What symbol is used for the home directory in Linux?
+
+a) %
+b) ~
+c) /
+d) $
+
+
+3. Which command is used to display the current working directory?
+
+a) pwd
+b) dir
+c) cd
+d) where
+
+
+4. Which command is used to change file permissions?
+
+a) chmod
+b) chown
+c) changeperm
+d) perm
+
+
+5. Which command shows currently running processes?
+
+a) ls
+b) ps
+c) top
+d) both b and c
+
+
+6. How do you display the contents of a text file in Linux?
+
+a) show
+b) read
+c) cat
+d) display
+
+
+7. Which command is used to create a new empty file?
+
+a) create
+b) touch
+c) newfile
+d) file
+
+
+8. What is the root user ID number in Linux?
+
+a) 1000
+b) 0
+c) 500
+d) 1
+
+
+9. What does the grep command do?
+
+a) Deletes files
+b) Searches text
+c) Lists processes
+d) Installs packages
+
+
+10. Which directory contains configuration files in Linux?
+
+a) /home
+b) /usr
+c) /bin
+d) /etc
+
+
+11.Which file contains the list of user accounts in Linux?
+
+a) /etc/passwd
+b) /etc/group
+c) /etc/users
+d) /etc/shadow
+
+12.In Linux, what does kill command do?
+
+a) Deletes a file
+b) Terminates a process
+c) Stops the system
+d) Restart the system
+
+13.What does the sudo command allow a user to do?
+
+a) Access system logs
+b) Run commands with root privileges
+c) Create new users
+d) Shutdown system
+
+14.Where are the log files usually stored in Linux?
+
+a) /usr/log
+b) /log
+c) /var/log
+d) /etc/log
+
+15. What does the grep command do?
+a) Edit files
+b) Search for patterns in text
+c) Create files
+d) Display file metadata
+
+16.What will the command cat file1 file2 do?
+a) Display only file1
+b) Display only file2
+c) Combine and display contents of both files
+d) Delete file1 and file2
+
+17.Which command searches for "hello" in a file named data.txt?
+a) cat hello data.txt
+b) grep "hello" data.txt
+c) sed hello data.txt
+d) find "hello" data.txt
+
+18.Which grep option ignores case (upper/lowercase)?
+a) -v
+b) -c
+c) -i
+d) -n
+
+19.. What does the sed command primarily do?
+a) Compress files
+b) Sort files
+c) Stream editor: search and replace text
+d) Encrypt text
+20.What will the command grep -v "apple" fruits.txt show?
+a) Lines containing "apple"
+b) Lines not containing "apple"
+c) Only "apple"
+d) Errors only
+
+21.Which sed command will replace "apple" with "orange" in a file?
+a) sed 'r/apple/orange/' filename
+b) sed 's/apple/orange/' filename
+c) sed 'd/apple/orange/' filename
+d) sed 'c/apple/orange/' filename
+
+22.Which option with cat shows line numbers?
+a) -e
+b) -n
+c) -s
+d) -A
+
+23.What does grep -c "Linux" notes.txt return?
+a) The number of lines containing "Linux"
+b) The actual lines with "Linux"
+c) A count of characters
+d) File size
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1.✅ Answer: a) ls
+2.✅ Answer: b) ~
+3.✅ Answer: a) pwd
+4.✅ Answer: a) chmod
+5.✅ Answer: d) both b and c
+6.✅ Answer: c) cat
+7.✅ Answer: b) touch
+8.✅ Answer: b) 0
+9.✅ Answer: b) Searches text
+10.✅ Answer: d) /etc
+11.✅ Answer: a) /etc/passwd
+12.✅ Answer: b) Terminates a process
+13.✅ Answer: b) Run commands with root privileges
+14.✅ Answer: c) /var/log
+15.✅ Answer: b) Search for patterns in text
+16.✅ Answer: c) Combine and display contents of both
+ files
+
+17.✅ Answer: b) grep "hello" data.txt
+
+18.✅ Answer: c) -i
+19.✅ Answer: c) Stream editor: search and replace text
+20.✅ Answer: b) Lines not containing "apple"
+21.✅ Answer: b) sed 's/apple/orange/' filename
+22.✅ Answer: b) -n
+23.✅ Answer: a) The number of lines containing "Linux"
+
+

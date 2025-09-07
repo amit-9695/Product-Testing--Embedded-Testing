@@ -1,0 +1,128 @@
+Git Rebase:
+============
+
+|-Rebase is one of the most powerful Git Command.
+
+|-Rebasing is often used as an alternative to merging.
+
+|-Rebasing a branch updates one branch with another by applying the commit of one branch on top of the commits  of another branch.
+
+|-Git Rebase is used to clean up our local commit history
+
+|-Rebase is advanced command which is used rarely.
+
+|-Merge preserve history
+|-Rebase doesn't preserve history
+
+
+Common Places where we use rebases
+==========================================
+|-Cleaning up your commits before sharing your branch.
+|-Pulling changes from another branch without merge.
+
+
+
+
+
+GIT RESET:
+==========
+|-The term reset itself stands for undoing changes.
+
+|-Reset is often reffered as confusing command.
+
+|-Reset has options
+
+--hard -> moves the files both to working area and staging area.
+
+--mixed -> moves the file only to stage area
+
+--soft -> does not move the files.
+
+|-Reset moves the current branch and optionally copies the data from the repositories to the working or staging area
+
+
+Examples:
+master:
+
+git commit
+git commit
+git checkout <commit-id>
+git checkout master
+
+
+
+1. git reset --soft <commit>
+|-keep all changes in staging and working directory
+|-Good for rewriting history withour losing work
+
+git reset --soft HEAD~1
+
+|-Moves HEAB back 1 commit,but keeps you changes staged
+
+
+2.git reset --mixed <commit>
+
+|-Keeps changes in working directory,but unstages them
+
+git reset --mixed HEAD~1
+
+
+
+3.git reset --hard <Commit>
+
+|-Discards all changes in both staging area and working directory
+
+git reset --hard HEAD~1
+
+|-Completely removes the last commit and any uncommited changes
+
+
+
+Note:
+	RESET VS REVERT
+
+|-RESET means moving the position of head pointer to the previous commit
+		git reset <commit-id>
+
+|-In Case of Revert, any commot not get deleted, it just create the new commit which revert the commit which we  want to revert.
+	git revert <commit-id>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

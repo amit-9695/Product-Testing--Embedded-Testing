@@ -1,0 +1,438 @@
+###########################
+Working with Sort Command
+###########################
+
+|-We use the 'sort' command to sort the results of a search either alphabetically or numerically.
+|-Files, file contents and directories can be sorted
+
+
+# Sorts the Contents of file1.txt and returns them in alphabetical order.
+sort file1.txt
+
+#Sorts the contents of both file1.txt & file2.txt
+sort file1.txt file2.txt
+
+# 'r' flage returns the results in reverse order
+sort -r file1.txt
+
+# 'f' flag does case insenitive sorting
+sort -f file1.txt
+
+# 'n' flag returns the results as per numerical order
+sort -n file1.txt
+
+
+################################################
+ cut – Extract specific fields or columns
+###################################################
+🔹 Syntax:
+	cut -d 'delimiter' -f field_number filename
+
+🔹 Example:
+	cut -d ':' -f1 /etc/passwd
+
+ Extracts the first field (username) using : as a delimiter.
+
+-d: specifies the delimiter -in this case a colon(:)
+
+-f1: Extracts the 1st field from line
+
+########################################
+sort – Sort lines in text files
+###########################################
+🔹 Syntax:
+	sort filename
+
+🔹 Common options:
+-r → reverse order
+
+-n → numerical sort
+
+-k → sort by field
+
+🔹 Example:
+	sort -n numbers.txt
+
+Sorts numbers in ascending order.
+
+##############################################################
+uniq – Remove or display duplicate lines (used after sort)
+##################################################################
+🔹 Syntax:
+	uniq filename
+
+🔹 Common options:
+-c → count occurrences
+
+-d → only show duplicates
+
+-u → only show unique lines
+
+🔹 Example:
+	sort names.txt | uniq -c
+
+➡️ Shows unique names with their frequency.
+
+Example:
+    create a file
+
+cat>names.txt
+ashutosh
+ashutosh
+namita
+devi
+devi
+sachin
+peter
+devi
+namita
+
+Save the file by pressing CTRL+d
+
+#Remove adjacent duplicates
+uniq names.txt
+
+#Remova all duplicates(sort+uniq)
+sort names.txt | uniq
+
+#Show only duplicates line
+uniq -d names.txt
+
+#Show only unique lines
+
+uniq -u names.txt
+
+#Count occurrences of each line
+uniq -c names.txt
+
+#Ignore case while comparing
+uniq -i names.txt
+
+Questions: Extract unique username from /etcpasswd
+
+	cut -d: -f1 /etc/passwd | sort | uniq
+
+
+
+
+
+######################################
+tr – Translate or delete characters
+###########################################
+|-tr command in linux is used to translate,replace or delete character from standard input
+🔹 Syntax:
+	tr 'set1' 'set2'
+
+🔹 Common uses:
+
+Delete characters (-d flag)
+
+🔹 Examples:
+	echo "HELLO" | tr 'A-Z' 'a-z'
+
+➡️ Converts to lowercase: hello
+	echo "hello 123" | tr -d '0-9'
+
+➡️ Removes digits: hello
+
+Examples:
+#Convert lowercase to uppercase
+echo "hello" | tr 'a-z' 'A-Z'
+
+
+#Convert uppercase to lowercase
+echo "HELLO WORLD" | tr 'A-Z' 'a-z'
+
+
+#Delete specific character
+-Remove all digits
+
+ echo "abc123xyz" | tr -d '0-9'
+
+#Remove all spaces
+ echo "a b c d" | tr -d ' '
+
+#Replace character
+ echo "10:20:30" | tr ':' '-'
+
+#Remove newlines
+cat file.txt | tr -d '\n'
+
+
+Questions
+|-Get all usernames from /etc/passwd and conver to uppercase
+
+	cut -d: -f1 /etc/passwd | tr 'a-z' 'A-Z'
+
+
+
+
+
+
+
+###################################################################
+Working with files & Directories: 'cp' command
+##################################################################
+
+Syntax:-
+		cp [options] source destination
+                cp [option] source  Directory
+                cp [option] source-1 source-2 .....source-n Directory
+
+cp     : This command is used to copy files and directories
+cp -i  : Enter interactive Mode: CLI ask before overewriting files
+cp -n  : Does not overwrite the file
+cp -u  : Update the destination file only when source file is different from destination file
+cp -R  : Recursive copy for copying directories; copies even hidden file
+cp -v  : Verbose; print informative messages
+
+
+Note: cp file1.txt file2.txt <directory-name>
+
+
+Ex:-
+=======
+|- Two file name
+  cp Src_file Dest_file
+ 
+e.g: cp a.txt b.txt
+
+
+|- One or more arguments
+
+cp Src_file1 Src_file2 Src_file3 Des_directory
+
+e.g: cp a.txt b.txt new
+
+
+
+##############################################
+Working Wiht Directories : mkdir command
+#############################################
+
+Syntax:-
+========
+     mkdir directory-path
+
+
+mkdir           		: this coommand is used to create a new directory
+
+mkdir -p      	        	: Creates both a new parent directory and a sub-directory
+
+mkdir --parents      	  	:This is also used for the same process
+
+mkdir -p file1/{f2,f3,f4}	: This is used to create multiple subdirectories inside the new parent directory
+
+
+
+#############################################
+Working with Files & Directorues: rm & rmdir
+###############################################
+
+rmdir foldername
+rm filename/foldername
+
+rmdir		: This command is used to remove the specified directory (Empty)
+rmdir -p	: Removes both the parent and child directory
+rmdir -pv	: Removes all the parent and sub directories along with verbose.
+rm -r           : Removes even non empty directories
+rm -rp          : Removes non empty directories including parent and subdirectories
+
+
+
+#############################
+Working with tar Files
+###############################
+
+|-When you download a package from the internet,the download file comes in compressed form.
+
+|- Commands to decompress and compress file in Linux
+
+gzip	: To compress files with .gz format
+gunzip	: To decompress .gz files
+tar	: To compress and decompress files with .tar format
+
+
+syntax:
+=========
+
+tar -cvf tar-file-name file-name // compressing files to tar format
+tar -xvf tar-file-name //Extracting/Decompressing files in Tar format
+
+
+
+
+
+##############################################################
+Working with Directories : ls command
+#########################################################
+
+Syntax:
+		ls [options] [file] [directory]
+
+ls		: This command lists all the contents in the current working directory
+ls path		: By specifying the path after ls, the content in that path will be displayed
+ls -l		: Using 'l' flag, lists all the contents along with its owner settings, permission & time stamp
+ls -a		: Using 'a' flag, lists all hidden contents in the specified directory
+ls --author	: Using "--author" flag, lists the contents in the specified directory along with its owner
+ls *.html	: using  '*' flag,lists only the contents in the directory of a particular format
+
+
+###############################################
+Working With Directories: cd
+#############################################
+Syntax:-
+	cd [directory]
+
+cd		: Changes the directory to the home directory
+cd ~		: This command also changes the directory to home directory
+cd /		: Changes the directory to root directory
+cd ..   	: Changes the directory to its parent directory
+cd 'XX YY'	: we specify the folder name in inverted commas because there is a space in the folder name
+
+
+
+
+
+######################################
+Working with Files: cat command
+#######################################
+Syntax:
+	cat [options] file1 [file2..]
+
+cat		: This command is used to display the content of text files and concatenate several files into one
+cat -b		: This is used to add line to non blank lines
+cat -n		: This is used to add line numbers to all lines
+cat -E		: Show $ at the end of file
+
+
+########################################
+Regular Expressions
+##################################
+
+|-Regular Expression(RegEX) are used to search through data.
+
+|- It can be pipped along with 'grep' command to find patterns of text in the file.
+
+
+Symbol			Explaination
+.			Replaces any character
+^			Matches the start of the string
+$			Matches the end of the string
+*			Matches the preceding character zero or more times.
+?			Matches the preceding character one or more times
+()			Group regular expressions
+\			Represents special characters
+
+
+		
+
+
+
+Example:
+===========
+
+create a file with following content
+======================================
+$ cat Autombiles.txt
+
+Car
+Motorikes
+Train
+Maruti
+Ferrari
+Lamborgini
+Yamaha
+Honda
+Suzuki
+Aprillia
+BMW
+Audi
+Volkswagen
+Amber
+KTM
+
+Save& close(CTRL+d)
+
+#show all lines which contains 'a'
+
+cat Autombiles.txt | grep a
+
+cat File1.txt | grep ^a
+
+grep 'a[0-9]x' File1.txt
+
+ls | grep '[xt$]'
+ls | grep 'file[1-9].txt'
+
+echo {a..z}
+echo {1..50}
+echo 1{a..z}6
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
